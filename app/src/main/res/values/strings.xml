@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Automato</string>
+    <string name="how_to">Paano kontrolin\?</string>
+
+    <string-array name="completePests">
+        <item>S. exigua (Beet armyworm)</item>
+        <item>S. litura (Tobacco cutworm)</item>
+        <item>T. urticae (Two-spotted spider mite)</item>
+        <item>B. argentifolii (Silverleaf whitefly)</item>
+        <item>M. persicae (Green peach aphid)</item>
+        <item>H. armigera (Cotton boilworm)</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="pests">
+        <item>Spodoptera exigua</item>
+        <item>Spodoptera litura</item>
+        <item>Tetranycus urticae</item>
+        <item>Bemisia argentifolii</item>
+        <item>Myzus persicae</item>
+        <item>Helicoverpa armigera</item>
+    </string-array>
+
+    <string-array name="commonNames">
+        <item>(Beet armyworm)</item>
+        <item>(Tobacco cutworm)</item>
+        <item>(Two-spotted spider mite)</item>
+        <item>(Silverleaf whitefly)</item>
+        <item>(Green peach aphid)</item>
+        <item>(Cotton boilworm)</item>
+    </string-array>
+
+    <string name="BA_scientific_name"><em><dfn>Bemisia argentifolii</dfn></em></string>
+    <string name="BA_common_name">(Silverleaf whitefly)</string>
+    <string name="BA_description">Ang Bemisia argentifolii (Silverleaf whitefly) ay isang napakaliit na insekto sa anyo ng isang puting paruparo at 1.5 mm ang laki. Naninira ito ng ilang pananim tulad ng kamatis, talong, at pipino. Namumuhay ito sa ilalim ng dahon kung saan ito nangingitlog. Sa hustong gulang, ang buong kawan ng mga whitefly ay pumamapaibabaw at mas mahirap na silang labanan.
+</string>
+    <string-array name="BA_tips">
+        <item>Mag-spray ng liquid dish soap solution. Maglagay ng isang tablespoon ng liquid dish soap sa isang galon ng tubig at paghaluing mabuti. Ilagay ang solution sa isang plastic spray bottle at i-spray ang taas at baba ng mga dahon.</item>
+        <item>Maaaring gumamit ng vacuum upang tanggalin ang mga whitefly mula sa nahawang mga halaman. Siguraduhing selyado o nakatali ang bag na panlalagyan ng mga insekto bago itapon sa basurahan.</item>
+    </string-array>
+
+    <string name="HA_scientific_name"><em><dfn>Helicoverpa armigera</dfn></em></string>
+    <string name="HA_common_name">Cotton boilworm</string>
+    <string name="HA_description">Ang Helicoverpa armigera (Cotton boilworm) ay isang insekto na naninira ng kamatis, ngunit ang larva lamang nito ang mapinsala. Mukhang kayumanngi o berdeng uuod ito na may habang 12-20 mm. Ang mga itlog nito ay bilog, puti, at paisa-isa lamang.
+</string>
+    <string-array name="HA_tips">
+        <item>Maaaring mag-aplay ng beneficial bacteria tulad ng Bacillus thuringiensis at Beauveria bassiana. Mag-konsulta sa isang eksperto kung paano iaaplay ang mga ito sa halaman.</item>
+        <item>Maaari ring mag-aplay ng Nuclear Polyhedrosis Virus (NPV) at 3 x 10 12 POB kada ektarya. Mag-konsulta sa isang eksperto kung paano iaaplay ito sa halaman.</item>
+    </string-array>
+
+    <string name="SL_scientific_name"><em><dfn>Spodoptera litura</dfn></em></string>
+    <string name="SL_common_name">(Tobacco cutworm)</string>
+    <string name="SL_description">Ang Spodoptera litura (Tobacco cutworm o cotton leafworm) ay isang gamugamo na naninira ng tanim ng kamatis ngunit ang larva lamang nito ang mapinsala. Binubulok ng mga uuod o larva nito ang halamang kamatis.
+</string>
+    <string-array name="SL_tips">
+        <item>Maaaring mag-aplay ng natural parasitoids tulad ng Snellenius manilae (isang uri ng putakti). Mag-konsulta sa isang eksperto kung paano iaaplay ang mga ito sa halaman.</item>
+        <item>Maaari ring mag-aplay ng Nuclear Polyhedrosis Virus (NPV) at 3 x 10 12 POB kada ektarya. Mag-konsulta sa isang eksperto kung paano iaaplay ito sa halaman.</item>
+    </string-array>
+
+    <string name="SE_scientific_name"><em><dfn>Spodoptera exigua</dfn></em></string>
+    <string name="SE_common_name">(Beet armyworm)</string>
+    <string name="SE_description">Ang Spodoptera exigua (Beet armyworm) ay isang insekto na naninira ng kamatis, ngunit ang larva lamang nito ang mapinsala. Ang larva o uuod nito ay maaring berde o dilaw, ngunit mas nangigitim at nagkaka-stripes at tuldok habang tumatanda. Ang haba nito ay mula 1 mm hanggang 30 mm.
+</string>
+    <string-array name="SE_tips">
+        <item>Maaaring mag-spray ng neem oil sa mga uuod. Napapatay din ang mga itlog gamit ang petroleum oil at 5% cottonseed oil.</item>
+        <item>Maaari ring mag-aplay ng Nuclear Polyhedrosis Virus (NPV) at 3 x 10 12 POB kada ektarya. Mag-konsulta sa isang eksperto kung paano iaaplay ito sa halaman.</item>
+    </string-array>
+
+    <string name="TU_scientific_name"><em><dfn>Tetranychus urticae</dfn></em></string>
+    <string name="TU_common_name">(Two-spotted spider mite)</string>
+    <string name="TU_description">Ang Tetranychus urticae (Two-spotted spider mite) ay isang insektong hugis-itlog, may habang 0.5mm, at maaaring kulay orange, berde, dilaw, at kahit plastik. Karaniwan itong nagkakabatik-batik sa katawan dahil sa naipong body waste.
+</string>
+    <string-array name="TU_tips">
+        <item>Maaaring mag-spray ng insecicidal soap at neem seed oil sa mga spider mites. I-target ang baba at taas ng dahon. Ulitin ang pag-aplay hangga\'t kailangan.</item>
+        <item>Maaari ring gumamit ng high-pressure water spray upang matungkab ang mga spider mites at ang kanilang sapot.</item>
+    </string-array>
+
+    <string name="MP_scientific_name"><em><dfn>Myzus persicae</dfn></em></string>
+    <string name="MP_common_name">(Green peach aphid)</string>
+    <string name="MP_description">Ang Myzus periscae (green peach aphid) isang insektong hugis-itlog maaaring kulay berde, dilaw, abo, pink, o pula. Makintab ang katawan ng mga batang insekto at unti-unting nawawala ang kinis nito pagtanda. Maaari din itong may pakpak. Kilala itong mapinsala sa halaman ng kamatis.
+</string>
+    <string-array name="MP_tips">
+        <item>Maaaring mag-spray ng insecticidal soap o pyrethrin sa halaman ng kamatis.</item>
+        <item>Ang paggamit din ng reflective mulch o makintab na materyal na umaaninag sa dahon ng kamatis ay nakakapagpataboy din ng green peach aphid.</item>
+    </string-array>
+</resources>
