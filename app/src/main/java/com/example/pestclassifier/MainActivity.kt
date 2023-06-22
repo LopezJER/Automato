@@ -15,9 +15,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.google.firebase.ml.modeldownloader.CustomModel
@@ -30,6 +28,7 @@ import java.lang.Byte
 import java.lang.Float
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+import java.security.KeyStore.TrustedCertificateEntry
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.Int
@@ -55,19 +54,31 @@ const val WIDTH = 128
 
 class MainActivity : AppCompatActivity() {
 
-
     private lateinit var photoURI: Uri
     private lateinit var photoFile: File
-    private lateinit var cameraPhotoPath:String
-    private lateinit var interpreter : Interpreter
-    var imageSelected = false
-    private lateinit var pestImageURI : Uri
+    private lateinit var cameraPhotoPath: String
+    private lateinit var interpreter: Interpreter
+    private lateinit var progressBar: ProgressBar
+    private lateinit var galleryButton: Button
+    private lateinit var cameraButton: Button
+    private lateinit var diagnoseButton: Button
+
+    private lateinit var prompt: TextView
+    private lateinit var pestImageURI: Uri
+    private var imageSelected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val actionBar: androidx.appcompat.app.ActionBar? = supportActionBar
         actionBar?.hide()
         setContentView(R.layout.activity_main)
+
+        progressBar = findViewById(R.id.progressBar)
+        prompt = findViewById(R.id.prompt)
+        galleryButton = findViewById(R.id.btn_gallery)
+        cameraButton = findViewById(R.id.btn_camera)
+        prompt.text = "Model loading for the first time. This may take a minute."
+        progressBar.visibility = View.VISIBLE
 
         val conditions = CustomModelDownloadConditions.Builder()
             .requireWifi()  // Also possible: .requireCharging() and .requireDeviceIdle()
@@ -79,12 +90,25 @@ class MainActivity : AppCompatActivity() {
             )
             .addOnSuccessListener { model: CustomModel? ->
                 val modelFile = model?.file
-                if (modelFile != null) interpreter = Interpreter(modelFile)
+                if (modelFile != null) {
+                    interpreter = Interpreter(modelFile)
+                    progressBar.visibility = View.GONE
+                    prompt.text = "Please select a pest image to diagnose."
+                    galleryButton.isEnabled=true
+                    cameraButton.isEnabled=true
+                }
+                Log.i("modelTAG", "Loaded model")
             }
             .addOnFailureListener { e ->
-                Log.i("model", e.toString())
+                Log.i("modelTAG", e.toString())
+                Toast.makeText(this, "Failed to download model", Toast.LENGTH_LONG).show()
+                progressBar.visibility = View.GONE
+                prompt.text = "Model failed to load. Try restarting this app."
+
             }
     }
+
+
 
     fun diagnosePest(view: View){
 
@@ -152,6 +176,7 @@ class MainActivity : AppCompatActivity() {
     private fun inferPest(input : ByteBuffer): Pair<Int, kotlin.Float> {
         val bufferSize = 6 * Float.SIZE / Byte.SIZE
         val modelOutput = ByteBuffer.allocateDirect(bufferSize).order(ByteOrder.nativeOrder())
+
         interpreter?.run(input, modelOutput)
         Log.i("step", "B")
 
@@ -201,7 +226,7 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
             Log.i("gallery", data?.data.toString())
-            val btn_label : Button = findViewById(R.id.btn_label)
+            val btn_label : Button = findViewById(R.id.btn_diagnose)
             btn_label.setEnabled(true)
             val prompt: TextView = findViewById(R.id.prompt)
 //            prompt.setText("Specimen selected. Diagnose pest or select another image.")
@@ -225,7 +250,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         else if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
-            val btn_label : Button = findViewById(R.id.btn_label)
+            val btn_label : Button = findViewById(R.id.btn_diagnose)
             btn_label.setEnabled(true)
             Log.i("camera", data?.data.toString())
             val f = File(cameraPhotoPath)

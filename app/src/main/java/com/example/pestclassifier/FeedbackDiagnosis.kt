@@ -67,7 +67,13 @@ class FeedbackDiagnosis : AppCompatActivity(), AdapterView.OnItemSelectedListene
             }
 
             databaseReference.child(key).setValue(value)
-        }
+                .addOnFailureListener { exception ->
+                    // Handle the failure here
+                    // You can log the error, display an error message, or take appropriate action
+                    // For example:
+                    Toast.makeText(this, "Failed to send feedback. Please try again.", Toast.LENGTH_SHORT).show()
+                }        }
+
         else{
         }
 
